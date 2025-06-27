@@ -1,6 +1,6 @@
-local util = require("everforest.util")
-local colours = require("everforest.colours")
-local highlights = require("everforest.highlights")
+local util = require("botanical.util")
+local colours = require("botanical.colours")
+local highlights = require("botanical.highlights")
 
 local M = {}
 

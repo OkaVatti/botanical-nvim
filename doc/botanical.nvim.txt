@@ -1,60 +1,60 @@
-*everforest.nvim.txt*       For Neovim >= 0.8.0       Last change: 2025 May 06
+*botanical.nvim.txt*       For Neovim >= 0.8.0       Last change: 2025 May 06
 
 ==============================================================================
-Table of Contents                          *everforest.nvim-table-of-contents*
+Table of Contents                          *botanical.nvim-table-of-contents*
 
-1. Everforest.nvim                           |everforest.nvim-everforest.nvim|
-  - Features                        |everforest.nvim-everforest.nvim-features|
-  - Installation                |everforest.nvim-everforest.nvim-installation|
-  - Usage                              |everforest.nvim-everforest.nvim-usage|
-  - Configuration              |everforest.nvim-everforest.nvim-configuration|
-  - Overriding Highlight Groups|everforest.nvim-everforest.nvim-overriding-highlight-groups|
-  - Overridingcolours in the palette|everforest.nvim-everforest.nvim-overridingcolours-in-the-palette|
-  - Plugin support            |everforest.nvim-everforest.nvim-plugin-support|
-  - Still TODO                    |everforest.nvim-everforest.nvim-still-todo|
-  - Inspiration                  |everforest.nvim-everforest.nvim-inspiration|
+1. botanical.nvim                           |botanical.nvim-botanical.nvim|
+  - Features                        |botanical.nvim-botanical.nvim-features|
+  - Installation                |botanical.nvim-botanical.nvim-installation|
+  - Usage                              |botanical.nvim-botanical.nvim-usage|
+  - Configuration              |botanical.nvim-botanical.nvim-configuration|
+  - Overriding Highlight Groups|botanical.nvim-botanical.nvim-overriding-highlight-groups|
+  - Overridingcolours in the palette|botanical.nvim-botanical.nvim-overridingcolours-in-the-palette|
+  - Plugin support            |botanical.nvim-botanical.nvim-plugin-support|
+  - Still TODO                    |botanical.nvim-botanical.nvim-still-todo|
+  - Inspiration                  |botanical.nvim-botanical.nvim-inspiration|
 
 ==============================================================================
-1. Everforest.nvim                           *everforest.nvim-everforest.nvim*
+1. botanical.nvim                           *botanical.nvim-botanical.nvim*
 
-A Lua port of the everforest <https://github.com/sainnhe/everforest> colour
+A Lua port of the botanical <https://github.com/sainnhe/botanical> colour
 scheme.
 
   -----------------------------------------------------------------------
                                    Dark                    Light
   ----------------------- ----------------------- -----------------------
-           Hard             [everforest colour       [eveforest colour
+           Hard             [botanical colour       [eveforest colour
                              scheme dark hard]      scheme light hard]
 
-     Medium (default)        [eveforest colour      [everforest colour
+     Medium (default)        [eveforest colour      [botanical colour
                             scheme dark medium]    scheme light medium]
 
-           Soft             [everforest colour      [everforest colour
+           Soft             [botanical colour      [botanical colour
                              scheme dark soft]      scheme light soft]
   -----------------------------------------------------------------------
 _All screenshots taken from my personal config_
 
 
-FEATURES                            *everforest.nvim-everforest.nvim-features*
+FEATURES                            *botanical.nvim-botanical.nvim-features*
 
 - 100% Lua, supports Treesitter & LSP
 - Vim terminal colours
 - **Lualine** theme
 
 
-INSTALLATION                    *everforest.nvim-everforest.nvim-installation*
+INSTALLATION                    *botanical.nvim-botanical.nvim-installation*
 
 Using lazy.nvim <https://github.com/folke/lazy.nvim>
 
 >lua
     require("lazy").setup({
-      "neanias/everforest-nvim",
+      "neanias/botanical-nvim",
       version = false,
       lazy = false,
       priority = 1000, -- make sure to load this before all the other start plugins
       -- Optional; default configuration will be used if setup isn't called.
       config = function()
-        require("everforest").setup({
+        require("botanical").setup({
           -- Your config here
         })
       end,
@@ -65,10 +65,10 @@ Usingpacker.nvim <https://github.com/wbthomason/packer.nvim>
 
 >lua
     use({
-      "neanias/everforest-nvim",
+      "neanias/botanical-nvim",
       -- Optional; default configuration will be used if setup isn't called.
       config = function()
-        require("everforest").setup()
+        require("botanical").setup()
       end,
     })
 <
@@ -76,34 +76,34 @@ Usingpacker.nvim <https://github.com/wbthomason/packer.nvim>
 Usingvim-plug <https://github.com/junegunn/vim-plug>
 
 >viml
-    Plug 'neanias/everforest-nvim', { 'branch': 'main' }
+    Plug 'neanias/botanical-nvim', { 'branch': 'main' }
 <
 
 
-USAGE                                  *everforest.nvim-everforest.nvim-usage*
+USAGE                                  *botanical.nvim-botanical.nvim-usage*
 
 >viml
     " In VimL
     
     " This has both light & dark modes to match your background setting.
-    colorscheme everforest
+    colorscheme botanical
 <
 
 >lua
     -- In Lua
-    vim.cmd([[colorscheme everforest]])
+    vim.cmd([[colorscheme botanical]])
     
     -- Alternatively
-    require("everforest").load()
+    require("botanical").load()
 <
 
-Toenable the everforest theme for LuaLine, you can specify it as such:
+Toenable the botanical theme for LuaLine, you can specify it as such:
 
 >lua
     require("lualine").setup({
       options = {
         -- ... other configuration
-        theme = "everforest", -- Can also be "auto" to detect automatically.
+        theme = "botanical", -- Can also be "auto" to detect automatically.
       }
     })
 <
@@ -121,10 +121,10 @@ there is no plan to change core highlights for one plugin.
 please set the diagnostic.border_follow configuration option to false.**
 
 
-CONFIGURATION                  *everforest.nvim-everforest.nvim-configuration*
+CONFIGURATION                  *botanical.nvim-botanical.nvim-configuration*
 
 
-  Configuration options aren’t as comprehensive as the original everforest
+  Configuration options aren’t as comprehensive as the original botanical
   theme yet.
 This colour scheme has a light and a dark mode which are configured using the
 vim background setting: `:set background=light` or `vim.o.background=dark` as
@@ -133,7 +133,7 @@ appropriate.
 The default configuration used by the colour scheme ~
 
 >lua
-    require("everforest").setup({
+    require("botanical").setup({
       ---Controls the "hardness" of the background. Options are "soft", "medium" or "hard".
       ---Default is "medium".
       background = "medium",
@@ -204,16 +204,16 @@ The default configuration used by the colour scheme ~
 <
 
 
-OVERRIDING HIGHLIGHT GROUPS*everforest.nvim-everforest.nvim-overriding-highlight-groups*
+OVERRIDING HIGHLIGHT GROUPS*botanical.nvim-botanical.nvim-overriding-highlight-groups*
 
 To find all possible palette colours, please see `colours.lua`
-<lua/everforest/colours.lua>.
+<lua/botanical/colours.lua>.
 
 For example, you could override the Diagnostic group of highlights to remove
 the undercurl:
 
 >lua
-    require("everforest").setup({
+    require("botanical").setup({
       on_highlights = function(hl, palette)
         hl.DiagnosticError = { fg = palette.none, bg = palette.none, sp = palette.red }
         hl.DiagnosticWarn = { fg = palette.none, bg = palette.none, sp = palette.yellow }
@@ -232,7 +232,7 @@ Here’s an example of adding a **bold** styling to the `TSBoolean` highlight
 group:
 
 >lua
-    require("everforest").setup({
+    require("botanical").setup({
       on_highlights = function(hl, palette)
         -- The default highlights for TSBoolean is linked to `Purple` which is fg
         -- purple and bg none. If we want to just add a bold style to the existing,
@@ -246,7 +246,7 @@ group:
 To clear any highlight groups, simply set them to `{}`
 
 >lua
-    require("everforest").setup({
+    require("botanical").setup({
       on_highlights = function(hl, palette)
         hl.TSDanger = {}
       end,
@@ -254,16 +254,16 @@ To clear any highlight groups, simply set them to `{}`
 <
 
 
-OVERRIDINGCOLOURS IN THE PALETTE*everforest.nvim-everforest.nvim-overridingcolours-in-the-palette*
+OVERRIDINGCOLOURS IN THE PALETTE*botanical.nvim-botanical.nvim-overridingcolours-in-the-palette*
 
 To find the existing palette colours, please see `colours.lua`
-<lua/everforest/colours.lua>.
+<lua/botanical/colours.lua>.
 
 For instance, if you use a dark background and want to use a darker hue for
 red, you could use the following configuration:
 
 >lua
-    require("everforest").setup({
+    require("botanical").setup({
       colours_override = function (palette)
         palette.red = "#b86466"
       end
@@ -271,7 +271,7 @@ red, you could use the following configuration:
 <
 
 
-PLUGIN SUPPORT                *everforest.nvim-everforest.nvim-plugin-support*
+PLUGIN SUPPORT                *botanical.nvim-botanical.nvim-plugin-support*
 
 - ALE <https://github.com/dense-analysis/ale>
 - Barbar <https://github.com/romgrk/barbar.nvim>
@@ -321,18 +321,18 @@ PLUGIN SUPPORT                *everforest.nvim-everforest.nvim-plugin-support*
 - vim-sneak <https://github.com/justinmk/vim-sneak>
 - yanky.nvim <https://github.com/gbprod/yanky.nvim>
 
-See the wiki <https://github.com/neanias/everforest-nvim/wiki> for the full
+See the wiki <https://github.com/neanias/botanical-nvim/wiki> for the full
 list of plugins that have highlights.
 
 
-STILL TODO                        *everforest.nvim-everforest.nvim-still-todo*
+STILL TODO                        *botanical.nvim-botanical.nvim-still-todo*
 
 - Colour scheme configuration
     - `background`
     - `transparent_background`
     - `dim_inactive_windows`
     - `disable_italic_comments`
-    - `enable_italic` — this is `italic` in everforest-nvim
+    - `enable_italic` — this is `italic` in botanical-nvim
     - _cursor
     - `sign_column_background`
     - `spell_foreground`
@@ -348,9 +348,9 @@ STILL TODO                        *everforest.nvim-everforest.nvim-still-todo*
 - Different colour scheme "weights"
 
 
-INSPIRATION                      *everforest.nvim-everforest.nvim-inspiration*
+INSPIRATION                      *botanical.nvim-botanical.nvim-inspiration*
 
-- everforest <https://github.com/sainnhe/everforest> (obviously)
+- botanical <https://github.com/sainnhe/botanical> (obviously)
 - NeoSolarized.nvim <https://github.com/Tsuzat/NeoSolarized.nvim>
 - Tokyo Night <https://github.com/folke/tokyonight.nvim>
 
