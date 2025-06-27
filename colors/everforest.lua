@@ -1,1 +1,1 @@
-require("everforest").load()
+require("botanical").load()
